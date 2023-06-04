@@ -7,8 +7,7 @@ const userInfo = mongoose.model("",new mongoose.Schema({}),"user_info")
 // page 页数
 // type 类型
 // 
-router.post("/getInfo",async (req,res)=>{
-    const body = req.body;
+router.get("/getInfo",async (req,res)=>{
     let result = await info.find();
     console.log(result)
     res.send({msg:"ok",data:result})
