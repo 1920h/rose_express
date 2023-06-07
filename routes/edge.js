@@ -10,8 +10,8 @@ app.post('/getEdge',async (req,res)=>{
     console.log(body);
     let page = body.page;
     let result = await edge.find().skip(page*15).limit(15);
-    console.log(result);
-    res.send({"msg":"ok","data":[]})
+    // console.log(result);
+    res.send({"msg":"ok","data":result})
 })
 
 module.exports =  app;
