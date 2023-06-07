@@ -19,6 +19,12 @@ router.post('/addInfo',async (req,res)=>{
     res.send({msg:"ok"})
 })
 
+router.post("/getDetailStore",(req,res)=>{
+    const body = req.body;
+    let mediaid = body.mediaid;
+    
+})
+
 router.post('/getOpenId',async (req,res)=>{
     const body = req.body;
     let result = await userInfo.where({openid:body.openid});
