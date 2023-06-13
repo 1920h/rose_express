@@ -17,6 +17,7 @@ let testRouter = require('./routes/test');
 let subRouter = require('./routes/sub');
 let infoRouter = require('./routes/info');
 let edgeRouter = require("./routes/edge");
+let commentRouter = require("./routes/comment");
 
 var app = express();
 // view engine setup
@@ -36,6 +37,7 @@ app.use('/test',testRouter);
 app.use('/api',subRouter)
 app.use('/api',infoRouter)
 app.use('/api',edgeRouter)
+app.use('/api',commentRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
