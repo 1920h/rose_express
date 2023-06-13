@@ -7,7 +7,7 @@ const router = express.Router()
 
 router.post("/getComments",async (req,res)=>{
     const body = req.body;
-    let result = await comments.where({mediaId:body.edgeid}).skip((page-1)*10).limit(10)
+    let result = await comments.where({mediaId:body.edgeid}).skip((body.page-1)*10).limit(10)
     res.send({msg:"ok",data:result})
 })
 
