@@ -11,4 +11,4 @@ router.post("/getComments",async (req,res)=>{
     res.send({msg:"ok",data:result})
 })
 
-export default router;
+module.exports = router;
