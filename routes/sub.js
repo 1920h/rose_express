@@ -30,6 +30,10 @@ app.get('/sub/:openid',async (req,res)=>{
     res.send({'msg':'ok','data':count})
 })
 
-
+app.get('/wx',(req,res)=>{
+    const body = req.body;
+    console.log(body)
+    res.send({"msg":"ok"})
+})
 
 module.exports = app;
