@@ -31,7 +31,7 @@ app.get('/sub/:openid',async (req,res)=>{
 })
 
 app.get('/wx',(req,res)=>{
-    const body = req.params;
+    const body = req.query;
     console.log(body)
     res.send(body.echostr)
 })
