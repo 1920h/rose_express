@@ -36,4 +36,9 @@ app.get('/wx',(req,res)=>{
     res.send(body.echostr)
 })
 
+app.post('/wx',(req,res)=>{
+    const body = req.body()
+    console.log(body)
+})
+
 module.exports = app;
