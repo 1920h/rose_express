@@ -1,0 +1,1 @@
+.flex{display:flex}.flex-column{display:flex;flex-direction:column}.center{justify-content:center;align-items:center}.content-flex{display:flex;flex-wrap:wrap;column-gap:.3rem;width:50%;margin:0 auto}.content-item{width:calc(33% - .3rem);height:auto;aspect-ratio:1/1;cursor:pointer}.content-item img{height:100%;width:100%}
