@@ -41,8 +41,8 @@ router.post('/addFollower', async (req, res) => {
 router.post('/updateUserInfo', async (req, res) => {
     const body = req.body;
     const openid = body.openid;
-    // await userinfo.create(userInfo)
-    await userinfo.findOneAndUpdate({ openid: openid }, { "$set": userInfo })
+    // await userinfo.create(openid)
+    await userinfo.findOneAndUpdate({ openid: openid }, { "$set": body })
     res.send({ msg: "ok" })
 })
 
