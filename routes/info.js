@@ -15,7 +15,6 @@ const LOGIN_URL = `https://api.weixin.qq.com/sns/jscode2session?appid=wx2ae8ccf8
 // 
 router.get("/getInfo",async (req,res)=>{
     let result = await info.find({type:{"$in":["info","music"]}});
-    console.log(result)
     res.send({msg:"ok",data:result})
 })
 
@@ -28,7 +27,6 @@ router.post("/getStore",async (req,res)=>{
     if(body.id){
         options['id'] = body.id
     }
-    console.log(options)
     let result = await info.find(options).sort({expiring_at:-1}).skip((body.page - 1) * 10).limit(10)
     res.send({"msg":"ok","data":result})
 })
@@ -51,10 +49,8 @@ router.post('/getOpenId',async (req,res)=>{
     const code = body.code;
     const url = LOGIN_URL + code
     let response = await axios.get(url)
-    console.log('response',response)
     const datas = response.data;
     let result = await userInfo.where({openid:datas.openid});
-    console.log(result)
     let infos = null;
     if(result.length==0){
         infos = {

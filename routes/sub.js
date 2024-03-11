@@ -13,7 +13,6 @@ const sendImage = require("../utils").sendImage
 app.post("/sub", async (req, res) => {
     const body = req.body;
     let result = await subModel.findOne({ openid: body.openid })
-    console.log('result', result)
     if (result == null) {
         await subModel.create({ openid: body.openid, count: 1 })
     } else {

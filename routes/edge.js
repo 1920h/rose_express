@@ -11,7 +11,6 @@ const app = express.Router()
 
 app.post('/getEdge',async (req,res)=>{
     let body = req.body;
-    console.log(body);
     let page = body.page;
     let result;
     let option = {}
@@ -22,7 +21,6 @@ app.post('/getEdge',async (req,res)=>{
         option['media_type'] = 2;
         page = page + 1
     }
-    console.log(option)
     if(body.isVideo){
         result = await edge.where(option).sort({taken_at_timestamp:-1}).skip((page-1)*15).limit(15);
     }else{
@@ -38,8 +36,6 @@ router.post('/getEdgeDetail',async (req,res)=>{
     const liker = body.liker;
     const result1 = await edge.find({edge_id:edge_id});
     const result2 = await edgeLike.find({liker:liker,edge_id:edge_id})
-    console.log(result1)
-    console.log(result2)
     res.send({msg:"ok",data:[result1,result2]})
 })
 
@@ -71,8 +67,6 @@ router.post('/getUserEdgeDetail',async (req,res)=>{
     const liker = body.liker;
     const result1 = await userEdge.find({edge_id:edge_id});
     const result2 = await edgeLike.find({liker:liker,edge_id:edge_id})
-    console.log(result1)
-    console.log(result2)
     res.send({msg:"ok",data:[result1,result2]})
 })
 

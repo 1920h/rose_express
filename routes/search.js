@@ -49,7 +49,6 @@ router.post('/updateUserInfo', async (req, res) => {
 router.post('/updateEdgeLike', async (req, res) => {
     const body = req.body;
     const result = await edgeLike.findOneAndUpdate({ edge_id: body.edge_id, liker: body.liker }, { "$set": body })
-    console.log(result)
     if(result == null){
         await edgeLike.create(body)
     }
@@ -62,9 +61,7 @@ router.post('/getEdgeLike', (req, res) => {
 })
 
 router.post('/uploadImage', upload.single('avatar'), (req, res) => {
-    console.log("upload")
     const files = req.file;
-    console.log('files', files, '5')
     uploadImage(files.path, files.originalname)
     res.send({ msg: "ok" })
 })
