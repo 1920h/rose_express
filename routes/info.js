@@ -56,7 +56,7 @@ router.post('/getOpenId',async (req,res)=>{
     let result = await userInfo.where({openid:datas.openid});
     console.log(result)
     let infos = null;
-    if(result.length!=0){
+    if(result.length==0){
         infos = {
             openid:datas.openid,
             username:datas.openid,
@@ -66,7 +66,9 @@ router.post('/getOpenId',async (req,res)=>{
             fans:0,
             follows:0,
             insAccount:'',
-            insPassword:''
+            insPassword:'',
+            isVip: 0,
+            isVipExpire: 0
         }
         userInfo.create(infos)
     }else{
