@@ -10,6 +10,8 @@ const userInfo = mongoose.model("user_info",new mongoose.Schema({
     follows:{type:String},
     insAccount:{type:String},
     insPassword:{type:String},
+    isVip:{type:Number},
+    isVipExpire: {type:String}
 }),"user_info")
 const message = mongoose.model("message",new mongoose.Schema({
     content:{type:String},
